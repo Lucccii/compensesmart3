@@ -22,6 +22,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "dd5f3c18-f633-497a-bb3c-a838e646f806"
+      }
+    },
+    "owner": "pmanteau1"
   }
 }
