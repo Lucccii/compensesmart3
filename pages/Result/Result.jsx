@@ -23,13 +23,14 @@ export function Result(){
     }, []);
 
     const isValidSemester = () => {
+        console.lo
         switch (result[3]) {
             case true:
-                return <Text>Bravo, tu valides ton semestre !</Text>
+                return <Text style={s.descpResult}>Bravo, tu valides ton semestre !</Text>
             case false:
-                return <Text>Aie, tu ne valides pas ton semestre... </Text>
+                return <Text style={s.descpResult}> Aie, tu ne valides pas ton semestre... </Text>
             default:
-                return <Text>Valeur non reconnue</Text>;
+                return <Text style={s.descpResult}>Valeur non reconnue</Text>;
         }
     };
 
@@ -41,18 +42,20 @@ export function Result(){
     const [moyenneGrpFond, setMoyenneGrpFond] = useState(result[0][0])
     const [moyenneGrpComp, setMoyenneGrpComp] = useState(result[1][0])
     const [moyenneGrpAutres, setMoyenneGrpAutres] = useState(result[2][0])
-    const [test, setTest] = useState(false)
 
     return <SafeAreaProvider>
-        <SafeAreaView style={{flex : 1, backgroundColor : "#F9F9F9"}}>
+        <SafeAreaView style={{flex : 1, backgroundColor : "#F9F9F9",}}>
             <View style={s.page}>
                 <View style={s.backPageContainer}>
                     <TouchableOpacity onPress={() => nav.navigate("Home")} >
                         <Ionicons name="chevron-back" size={24} color="black" />
                     </TouchableOpacity>
                 </View>
-                <View style={s.imgContainer}>
-                    <Image source={result[3] ? validImg : invalidImg} style={s.image} />
+                <View style={[s.imgContainer, result[3] ? s.validContainer : s.invalidContainer]}>
+                    {/*<Image source={result[3] ? validImg : invalidImg} style={s.image}  /> */}
+                    <Text style={s.moyResultValue}>
+                        {result[4].toFixed(2)}
+                    </Text>
                     {isValidSemester()}
                 </View>
                 <View><Text>{result[3]}</Text></View>
@@ -60,21 +63,21 @@ export function Result(){
                     <View style={s.resultCard}>
                         <Text style={s.resultTitle}>Moyenne groupe fondamental :</Text>
                         <Text style={[s.resultValue, (moyenneGrpFond >= 10) ? s.valid : s.invalid]}>
-                            {moyenneGrpFond}
+                            {moyenneGrpFond.toFixed(2)}
                         </Text>
                     </View>
 
                     <View style={s.resultCard}>
                         <Text style={s.resultTitle}>Moyenne groupe complémentaire :</Text>
                         <Text style={[s.resultValue, (moyenneGrpComp >= 10) ? s.valid : s.invalid]}>
-                            {moyenneGrpComp}
+                            {moyenneGrpComp.toFixed(2)}
                         </Text>
                     </View>
 
                     <View style={s.resultCard}>
                         <Text style={s.resultTitle}>Moyenne groupe autres :</Text>
                         <Text style={[s.resultValue, (moyenneGrpAutres >= 10) ? s.valid : s.invalid]}>
-                            {moyenneGrpAutres}
+                            {moyenneGrpAutres.toFixed(2)}
                         </Text>
                     </View>
                 </View>

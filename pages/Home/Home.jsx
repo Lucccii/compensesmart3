@@ -26,7 +26,7 @@ export function Home () {
         try {
             const data = [grpFondTab, grpCompTab, grpAutreTab]
             //console.log("-------------------")
-            console.log("SAVED DATA : ", data)
+            //console.log("SAVED DATA : ", data)
             //console.log(data)
             //console.log("-------------------")
             const jsonValue = JSON.stringify(data);

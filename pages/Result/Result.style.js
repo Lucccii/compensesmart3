@@ -47,22 +47,33 @@ export const s = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         textAlign: 'center',
+    }, moyResultValue : {
+            fontSize: 40,
+            fontWeight: 'bold',
+            textAlign: 'center',
+            color : 'white',
     },
     valid: {
-        color: 'green',
+        color: '#61C555',
     },
     invalid: {
-        color: 'red',
+        color: '#ED574D',
     },
     backPageContainer : {
         position :'absolute',
         top : 10,
-        left : 10,
+        left : 0,
         height : 40,
         width : 40,
-        backgroundColor : "white",
         borderRadius : 20,
         justifyContent : 'center',
         alignItems : 'center',
+    }, validContainer : {
+        backgroundColor : "#61C555",
+    }, invalidContainer : {
+        backgroundColor : "#ED574D",
+    }, descpResult : {
+        color : "white",
+        paddingTop : 5,
     }
 })
