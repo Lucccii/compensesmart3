@@ -3,12 +3,13 @@ import { useNavigation } from "@react-navigation/native";
 import {SafeAreaView, SafeAreaProvider,} from "react-native-safe-area-context";
 import {useState, useEffect} from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { BookContext } from "../../contexts/isIsCleanTabLineRender";
+import Dialog from "react-native-dialog";
 
 import {Header} from '../../components/Header/Header'
 import {Body} from "../../components/Body/Body";
 import {ResultButton} from "../../components/ResultButton/ResultButton";
 import {tabModels} from "../../Models/tabModels";
+import { BookContext } from "../../contexts/isIsCleanTabLineRender";
 
 import {s} from './Home.style'
 
@@ -20,6 +21,7 @@ export function Home () {
     const [grpFondTab, setGrpFondTab] = useState(tabModels)
     const [grpCompTab, setGrpCompTab] = useState(tabModels)
     const [grpAutreTab, setGrpAutreTab] = useState(tabModels)
+    const [NTPLDescpIsVisible, setNTPLDescpIsVisible] = useState(false)
     const [isCleanTabLineRender, setIsCleanTabLineRender] = useState(false)
 
     async function saveData (){
@@ -78,8 +80,16 @@ export function Home () {
         loadData();
     }, []);
 
+    function handleCancel() {
+        setNTPLDescpIsVisible(false)
+    }
+
+    useEffect(() => {
+        console.log(grpFondTab)
+    }, [grpFondTab]);
+
     return <>
-        <BookContext.Provider value={{isCleanTabLineRender, setIsCleanTabLineRender}}>
+        <BookContext.Provider value={{isCleanTabLineRender, setIsCleanTabLineRender, setNTPLDescpIsVisible}}>
         <SafeAreaProvider>
             <SafeAreaView style={{flex : 1, }}>
                 <View style={s.header}>
@@ -98,5 +108,20 @@ export function Home () {
         </SafeAreaProvider >
         <ResultButton GrpFondTab={[grpFondTab, setGrpFondTab]} GrpCompTab={[grpCompTab, setGrpCompTab]} GrpAutreTab={[grpAutreTab, setGrpAutreTab]} />
         </BookContext.Provider>
+        <View>
+            <Dialog.Container visible={NTPLDescpIsVisible} onBackdropPress={() => {
+                setNTPLDescpIsVisible(false);
+            }}>
+                <Dialog.Title style={{fontSize : 25, marginBottom : 7}} >Description</Dialog.Title>
+                <Dialog.Description>
+                    NTPL signifie note planché
+                </Dialog.Description>
+                <Dialog.Description>
+                    Si vous n'en avez pas, laissez {"\n"}
+                    le champ vide
+                </Dialog.Description>
+                <Dialog.Button style={{color : "black"}} label="OK" onPress={() => setNTPLDescpIsVisible(false)} />
+            </Dialog.Container>
+        </View>
     </>
 }
