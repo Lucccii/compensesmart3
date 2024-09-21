@@ -42,6 +42,7 @@ export const s = StyleSheet.create({
         color: '#333',
         marginBottom: 5,
         textAlign: 'center',
+        fontFamily : "SFProRegular",
     },
     resultValue: {
         fontSize: 18,
@@ -75,5 +76,6 @@ export const s = StyleSheet.create({
     }, descpResult : {
         color : "white",
         paddingTop : 5,
+        fontFamily : "SFProRegular",
     }
 })

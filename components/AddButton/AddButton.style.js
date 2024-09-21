@@ -17,6 +17,7 @@ export const s = StyleSheet.create({
     txt : {
         color : 'white',
         textAlign : 'center',
+        fontFamily : "SFProRegular",
     }
     }
 )

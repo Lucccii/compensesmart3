@@ -9,13 +9,21 @@ export const s = StyleSheet.create({
     nameInput : {
         flex : 5,
         paddingHorizontal : 5,
+        fontFamily : "SFProRegular",
     }, ECTS : {
         flex : 1,
         paddingHorizontal : 5,
         textAlign : 'center',
+        fontFamily : "SFProRegular",
     }, Note : {
         textAlign : 'center',
         flex : 1,
         paddingHorizontal : 5,
+        fontFamily : "SFProRegular",
+    }, NPlanche : {
+        textAlign : 'center',
+        flex : 1,
+        paddingHorizontal : 5,
+        fontFamily : "SFProRegular",
     }
 })

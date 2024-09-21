@@ -34,6 +34,12 @@ export function CardGrp({Tab}){
                     Name : newText,
                 }
                 break;
+            case 'NPlanche' :
+                lineUpdated = {
+                    ...ue,
+                    NPlanche : newText,
+                }
+                break;
         }
         const updatedTab = [...currentTab];
         let index = currentTab.findIndex(item => ue.id === item.id)
@@ -42,7 +48,7 @@ export function CardGrp({Tab}){
     }
 
     function addLines (){
-        let newLine = { id : uuid.v4(), Name: '', ECTs: undefined, Note: undefined }
+        let newLine = { id : uuid.v4(), Name: '', ECTs: undefined, Note: undefined, NPlanche : undefined }
         setCurrentTab([...currentTab, newLine])
     }
 

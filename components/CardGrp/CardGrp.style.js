@@ -10,8 +10,5 @@ export const s = StyleSheet.create({
     tabContainer : {
         borderWidth : 2,
         borderColor : 'black',
-    },
-    nameInput : {
-
     }
 })

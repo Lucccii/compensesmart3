@@ -81,7 +81,7 @@ export function Home () {
     return <>
         <BookContext.Provider value={{isCleanTabLineRender, setIsCleanTabLineRender}}>
         <SafeAreaProvider>
-            <SafeAreaView style={{flex : 1,}}>
+            <SafeAreaView style={{flex : 1, }}>
                 <View style={s.header}>
                     <Header />
                 </View>

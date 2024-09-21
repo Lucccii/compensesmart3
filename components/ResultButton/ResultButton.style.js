@@ -28,5 +28,6 @@ export const s = StyleSheet.create({
     }, txt : {
         color : "white",
         fontSize : 20,
+        fontFamily : "SFProRegular",
     }
 })

@@ -2,7 +2,7 @@
 
 # dependencies
 node_modules/
-
+assets/fonts/
 # Expo
 .expo/
 dist/

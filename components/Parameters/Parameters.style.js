@@ -16,6 +16,8 @@ export const s = StyleSheet.create({
     ECTs : {
         flex : 1,
         textAlign : 'center',
+    }, NPlanche : {
+        flex : 1,
     },
     Note : {
         flex : 1,
@@ -28,5 +30,9 @@ export const s = StyleSheet.create({
         fontSize : 16,
     }, txtName : {
         fontSize : 16,
+
+    }, NPlancheTxt : {
+        fontSize : 16,
+        textAlign : "center",
     }
 })
