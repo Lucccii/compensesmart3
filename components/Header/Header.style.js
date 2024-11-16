@@ -7,8 +7,8 @@ export const s = StyleSheet.create({
         justifyContent : "center",
     },
     txt : {
-        fontSize : "40px",
+        fontSize : 50,
         textAlign : 'center',
-        fontFamily : "SFProRegular",
+        fontFamily : "SFProBold",
     }
 })

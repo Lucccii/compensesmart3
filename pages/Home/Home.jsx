@@ -84,10 +84,6 @@ export function Home () {
         setNTPLDescpIsVisible(false)
     }
 
-    useEffect(() => {
-        console.log(grpFondTab)
-    }, [grpFondTab]);
-
     return <>
         <BookContext.Provider value={{isCleanTabLineRender, setIsCleanTabLineRender, setNTPLDescpIsVisible}}>
         <SafeAreaProvider>

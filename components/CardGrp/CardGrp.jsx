@@ -17,15 +17,31 @@ export function CardGrp({Tab}){
         let lineUpdated = {}
         switch (modifType) {
             case 'ECTs' :
-                lineUpdated = {
-                    ...ue,
-                    ECTs : newText,
+                if (newText !== "" && (ue.Note === undefined || ue.Note === "")){
+                    lineUpdated = {
+                        ...ue,
+                        ECTs : newText,
+                        Note : "10"
+                    }
+                } else {
+                    lineUpdated = {
+                        ...ue,
+                        ECTs : newText,
+                    }
                 }
                 break;
             case 'Note' :
-                 lineUpdated = {
-                    ...ue,
-                    Note : newText,
+                if (newText !== "" && (ue.ECTs === undefined || ue.ECTs === "")){
+                    lineUpdated = {
+                        ...ue,
+                        Nçte : newText,
+                        ECTs : "1"
+                    }
+                } else {
+                    lineUpdated = {
+                        ...ue,
+                        Note : newText,
+                    }
                 }
                 break;
             case 'Name' :
@@ -47,6 +63,13 @@ export function CardGrp({Tab}){
         setCurrentTab(updatedTab);
     }
 
+    function deleteLine(ue){
+        if (currentTab.length > 1) {
+            const filterTab = currentTab.filter((item) => { return ue !== item})
+            setCurrentTab(filterTab)
+        }
+    }
+
     function addLines (){
         let newLine = { id : uuid.v4(), Name: '', ECTs: undefined, Note: undefined, NPlanche : undefined }
         setCurrentTab([...currentTab, newLine])
@@ -55,7 +78,7 @@ export function CardGrp({Tab}){
     function renderTab(){
         return currentTab.map((ueItem) => {
             return <View style={s.lineContainer} key={ueItem.id}>
-                <TabLine ue={ueItem} updateLine={updateLine}/>
+                <TabLine ue={ueItem} updateLine={updateLine} deleteLine={deleteLine}/>
             </View>
         });
     }

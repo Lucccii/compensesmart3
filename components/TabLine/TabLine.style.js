@@ -21,6 +21,7 @@ export const s = StyleSheet.create({
         paddingHorizontal : 5,
         fontFamily : "SFProRegular",
     }, NPlanche : {
+
         textAlign : 'center',
         flex : 1,
         paddingHorizontal : 5,

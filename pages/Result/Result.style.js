@@ -14,7 +14,7 @@ export const s = StyleSheet.create({
         height : "24%",
         width : '90%',
         backgroundColor : "white",
-        justifyContent : 'center',
+        justifyContent : 'flex-end',
         alignItems : 'center',
         marginVertical : 60,
         borderRadius : 30,
@@ -27,7 +27,22 @@ export const s = StyleSheet.create({
         shadowRadius: 4.65,
 
         elevation: 7,
-    }, esultTxtArea: {
+    }, descNeg: {
+        padding : 9,
+        paddingBottom : 15,
+    }, descPositif : {
+        padding : 9,
+        paddingBottom : 35,
+    }
+    ,explqTxt : {
+        color : 'white',
+        textAlign : "center",
+        fontFamily : "SFProRegular",
+        fontSize : 12,
+        textDecorationLine : "underline",
+        padding : 5,
+    },
+    esultTxtArea: {
         flex: 3,
         padding: 10,
     },
@@ -49,10 +64,10 @@ export const s = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
     }, moyResultValue : {
-            fontSize: 40,
-            fontWeight: 'bold',
-            textAlign: 'center',
-            color : 'white',
+        fontSize: 40,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        color : 'white',
     },
     valid: {
         color: '#61C555',
@@ -77,5 +92,6 @@ export const s = StyleSheet.create({
         color : "white",
         paddingTop : 5,
         fontFamily : "SFProRegular",
+        fontSize : 15,
     }
 })

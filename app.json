@@ -1,24 +1,39 @@
 {
   "expo": {
-    "name": "compensesmart3",
+    "name": "Compense",
     "slug": "compensesmart3",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/logo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/splashScreen.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#ffffff",
+      "assetBundlePatterns": [
+        "**/*"
+      ],
+      "plugins": [
+        [
+          "expo-font",
+          {
+            "SFProRegular": [
+              "./assets/fonts/SFProRegular.ttf"
+            ]
+          }
+        ]
+      ]
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.pmanteau1.compensesmart3"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/images/foreGround.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.pmanteau1.compensesmart3"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -28,6 +43,9 @@
         "projectId": "dd5f3c18-f633-497a-bb3c-a838e646f806"
       }
     },
-    "owner": "pmanteau1"
+    "owner": "pmanteau1",
+    "plugins": [
+      "expo-font"
+    ]
   }
 }

@@ -34,5 +34,6 @@ export const s = StyleSheet.create({
     }, NPlancheTxt : {
         fontSize : 16,
         textAlign : "center",
+        fontStyle: 'italic',
     }
 })

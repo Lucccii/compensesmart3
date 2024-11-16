@@ -14,7 +14,6 @@ export function ResultButton({GrpFondTab, GrpCompTab, GrpAutreTab}) {
         [GrpFondTab, GrpCompTab, GrpAutreTab].map((grp) => {
             const [tab, setTab] = grp
             let cmpt = 1;
-            let idGiver = 0;
             const filterTab = tab.filter((item) => {
                 if ((item.ECTs === undefined || item.ECTs ==="") && (item.Note === undefined || item.Note==="")  && (item.Name === "")){
                     if (cmpt <= 0){
