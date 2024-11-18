@@ -40,7 +40,16 @@ export function Result(){
     const [moyenneGrpFond, setMoyenneGrpFond] = useState(result[0][0])
     const [moyenneGrpComp, setMoyenneGrpComp] = useState(result[1][0])
     const [moyenneGrpAutres, setMoyenneGrpAutres] = useState(result[2][0])
-    const [visible, setVisible] = useState(false);
+    const [visiblePourquoi, setVisiblePourquoi] = useState(false);
+    const [visibleNaNExit, setVisibleNaNExit] = useState(false);
+
+    useEffect(() => {
+        if (isNaN(result[4])) {
+            setTimeout(() => {
+                setVisibleNaNExit(true);
+            }, 3000) // Navigation déclenchée dans un useEffect
+        }
+    }, [result]);
 
     return <>
         <SafeAreaProvider>
@@ -55,15 +64,15 @@ export function Result(){
                 <View style={[s.imgContainer, result[3] ? s.validContainer : s.invalidContainer]}>
                     {/*<Image source={result[3] ? validImg : invalidImg} style={s.image}  /> */}
                     <Text style={s.moyResultValue}>
-                        {result[4].toFixed(2)}
+                        {
+                            isNaN(result[4]) ? "?" : result[4].toFixed(2)
+                        }
                     </Text>
                     <View style={[result[3] ? s.descPositif : s.descNeg]}>
-                        {isValidSemester()}
-                        {result[3] ? null : <TouchableOpacity onPress={() => setVisible(true)}><Text style={s.explqTxt}>Pourquoi ?</Text></TouchableOpacity> }
+                        {isNaN(result[4]) ?  <Text>.</Text> : isValidSemester()}
+                        {result[3] || isNaN(result[4]) ? <Text>.</Text> : <TouchableOpacity onPress={() => setVisiblePourquoi(true)}><Text style={s.explqTxt}>Pourquoi ?</Text></TouchableOpacity> }
                     </View>
                 </View>
-
-
 
                 <View><Text>{result[3]}</Text></View>
                 <View style={s.resultTxtArea}>
@@ -92,14 +101,28 @@ export function Result(){
         </SafeAreaView>
     </SafeAreaProvider>
     <View>
-        <Dialog.Container visible={visible} onBackdropPress={() => {
-            setVisible(false);
+        <Dialog.Container visible={visibleNaNExit} onBackdropPress={() => {
+            setVisiblePourquoi(false);
+        }}>
+            <Dialog.Title style={{fontSize : 25, marginBottom : 7}} >Explication</Dialog.Title>
+            <Dialog.Description>
+                {"Veuillez rentrer au minimum une matière avec son ECTS et sa Notes pour simuler le semestre"}
+            </Dialog.Description>
+            <Dialog.Button style={{color : "black"}} label="OK" onPress={() => {
+                setVisiblePourquoi(false);
+                nav.navigate('Home')
+            }} />
+        </Dialog.Container>
+    </View>
+    <View>
+        <Dialog.Container visible={visiblePourquoi} onBackdropPress={() => {
+            setVisiblePourquoi(false);
         }}>
             <Dialog.Title style={{fontSize : 25, marginBottom : 7}} >Explication</Dialog.Title>
             <Dialog.Description>
                 {codeIntoExplicationTab[result[5]]}
             </Dialog.Description>
-            <Dialog.Button style={{color : "black"}} label="OK" onPress={() => setVisible(false)} />
+            <Dialog.Button style={{color : "black"}} label="OK" onPress={() => setVisiblePourquoi(false)} />
         </Dialog.Container>
     </View>
     </>

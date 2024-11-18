@@ -2,8 +2,6 @@ import {StyleSheet} from "react-native";
 
 export const s = StyleSheet.create({
     container : {
-        borderBottomWidth : 2,
-        borderColor : 'black',
         flexDirection : 'row',
         height : 40,
         justifyContent : 'center',
